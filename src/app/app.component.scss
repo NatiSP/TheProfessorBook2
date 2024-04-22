@@ -117,3 +117,7 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+.isDownloaded {
+  border: 5px solid #04AA6D;
+}

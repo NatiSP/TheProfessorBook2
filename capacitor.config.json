@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "TheProfessorBook2",
+	"appId": "com.natisp.theprofessorbook",
+	"appName": "Professor Book",
 	"webDir": "www",
 	"server": {
 		"androidScheme": "https"

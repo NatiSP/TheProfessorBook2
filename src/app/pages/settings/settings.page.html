@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start"> 
+        <ion-menu-button auto-hide="false"></ion-menu-button> 
+      </ion-buttons> 
+      <ion-title>Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label position="stacked">Enter your name</ion-label>
+    <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Enter your POP ID</ion-label>
+    <ion-input type="text" placeholder="Your POP ID (Optional)" [(ngModel)]="popId"></ion-input>
+  </ion-item>
+  <ion-item (click)="forceDownload = !forceDownload">
+    <ion-label>Always open on browser (don't download)</ion-label>
+    <ion-toggle [checked]="forceDownload"></ion-toggle>
+  </ion-item>
+    <ion-button (click)="saveSettings()"><ion-icon *ngIf="saved == false" name="save-outline"></ion-icon><ion-icon *ngIf="saved == true" name="checkmark-outline"></ion-icon>Save Settings</ion-button>
+    <ion-button (click)="updateDocs()">Update Docs</ion-button>
+    <ion-button color="danger" (click)="clearData()">Clear Data</ion-button>
+</ion-content>

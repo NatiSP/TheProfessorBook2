@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start"> 
+        <ion-menu-button auto-hide="false"></ion-menu-button> 
+      </ion-buttons> 
+      <ion-title>Timer</ion-title>
+      <ion-buttons slot="end"> 
+        <ion-button (click)="navigateToPage('/tcg')"><ion-icon name="chevron-back-outline"></ion-icon>Back</ion-button>
+      </ion-buttons> 
+    </ion-toolbar>
+  </ion-header>
+  <ion-progress-bar [value]="countdownTime / maxTime" color="{{timeColor}}"></ion-progress-bar>
+  <ion-text color="{{timeColor}}" class="centered">
+    <h1 class="centered">{{countdownTime | date: 'mm:ss' : 'UTC'}}</h1>
+  </ion-text>
+  <ion-button expand="full" size="large" *ngIf="!timerOn" color="primary" (click)="startTimer()">Start</ion-button>
+  <ion-button expand="full" size="large" *ngIf="timerOn" color="warning" (click)="startTimer()">Pause</ion-button>
+  <ion-button expand="full" size="large" color="danger" (click)="stopTimer()">Stop</ion-button>
+  <ion-row class="buttons-centered">
+    <ion-button expand="full" size="large" color="secondary" (click)="setCountdownToBo1()" class="half-size">Reset Bo1</ion-button>
+    <ion-button expand="full" size="large" color="secondary" (click)="setCountdownToBo3()" class="half-size">Reset Bo3</ion-button>
+  </ion-row>
+<br/>
+  <ion-row>
+    <ion-col>
+      <ion-input [(ngModel)]="manualTime" placeholder="Enter custom time (in minutes)"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="full" size="large" color="secondary" (click)="setCountdownToManual()">Set Custom Time</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -57,13 +57,13 @@ export class DataService {
           if (document.isPDF && this.isMobileDevice() && !forceDownload) {
             
             if (!document.downloaded || document.path === undefined) {
-              alert(document.URL);
+              //alert(document.URL);
 
               this.nativeHTTP.downloadFile(document.URL, {}, {'Accept': 'application/pdf'}, this.file.dataDirectory + document.Name + '.pdf').then((entry: FileEntry) => {
                 if (entry) {
                   entry.file(async success => { 
                       var mimeType = success.type;
-                      alert(mimeType);
+                      //alert(mimeType);
                       document.downloaded = true;
                       document.path = entry.nativeURL;
                       await this.storage.set(doc.Name, document);
@@ -121,13 +121,13 @@ export class DataService {
               
             } else {
               try {
-                alert(document.path);
+                //alert(document.path);
                 this.file.resolveDirectoryUrl(this.file.dataDirectory).then((dir) => {
                   this.file.getFile(dir, document.Name + '.pdf', {}).then((entry: FileEntry) => {
                     if (entry) {
                       entry.file(async success => { 
                           var mimeType = success.type;
-                          alert(mimeType);
+                          //alert(mimeType);
                           this.fileOpener.open(entry.nativeURL, mimeType)
                             .then(() => console.log('file should be open'))
                             .catch(e => alert('Error opening file: ' + JSON.stringify(e)));
